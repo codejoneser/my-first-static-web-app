@@ -1,3 +1,38 @@
+$(document).ready(function () {
+
+    var testimonialItem = $(".testimonial-wrapper .testimonial-item");
+    var lengthOfItem = testimonialItem.length;
+    var counter = 0;
+        
+    testimonialItem.hide();
+    setTimeout(function(){
+    startIteration(counter);
+    }, 1000);
+    
+    
+    function startIteration(counter) {
+    testimonialItem.eq(counter).fadeIn('slow', function() {
+    if(counter<=lengthOfItem){ 
+    setTimeout(function(){ 
+    testimonialItem.fadeOut('slow',function(){
+    if (counter == lengthOfItem) {
+    counter = 0;  
+    }else{
+    counter++;}
+    setTimeout(function(){ startIteration(counter);}, 500);    
+    });}, 2000);
+    }
+    });
+    }
+    
+        
+    
+    
+    });
+
+    
+
+
 <link rel="stylesheet" type="text/css" href="../css/main.css">
 
 		<div class="about">
